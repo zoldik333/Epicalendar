@@ -1,2 +1,0 @@
-# epicalendar
-A JavaScript project
