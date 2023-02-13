@@ -1,5 +1,5 @@
-const CLIENT_ID = '490850150345-slrqug5oghlih3565ubimrte8epeprda.apps.googleusercontent.com';
-const API_KEY = 'AIzaSyAAR8BdLPosL6BLr5UAhY0tvM0-cL0ShmY';
+const CLIENT_ID = '***';
+const API_KEY = '***';
 
 // Discovery doc URL for APIs used by the quickstart
 const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';
