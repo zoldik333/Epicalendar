@@ -20,9 +20,14 @@ Connection with EPITECH Intranet using Microsoft login and password :
 - Save login and password into database
 > MySQL
 - Parse JSON using user information from EPITECH Intranet
-> ??
+> ???
 - Synchronize JSON information with Fullcalendar
 > Javascript
+
+Automatization :
+- How to automatize the process of synchronize the different calendar on your Epicalendar ?
+Which frequency ? Automatization every time you launch the app being logged in ? Being logged off ?
+> ???
 
 Managing events on the application :
 - Use Fullcalendar plugin
