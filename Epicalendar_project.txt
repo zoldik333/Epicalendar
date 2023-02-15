@@ -1,0 +1,32 @@
+PROJET EPICALENDAR :
+Web Application to synchronize multiple calendars from different sources.
+
+Actual sources :
+- Google Calendar
+- Epitech's intranet calendar
+
+Dev steps :
+Authentications have to be done before displaying synchronized calendars :
+- Authentication with Google for Google Calendar
+> Javascript API request, Fullcalendar synchronization
+- Save cookies for auto-authentication when already logged
+> PHP + MySQL
+- Authentication to Microsoft account
+> Javascript API request
+- Save cookies for auto-authentication when already logged
+> PHP + MySQL
+
+Connection with EPITECH Intranet using Microsoft login and password :
+- Save login and password into database
+> MySQL
+- Parse JSON using user information from EPITECH Intranet
+> ??
+- Synchronize JSON information with Fullcalendar
+> Javascript
+
+Managing events on the application :
+- Use Fullcalendar plugin
+> Javascript 
+
+Style :
+> Tailwind ? for CSS
