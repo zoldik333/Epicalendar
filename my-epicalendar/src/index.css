@@ -1,3 +1,8 @@
 #title {
     color: blue;
 }
+
+input {
+    border : 2px gray solid;
+    border-radius: 5px;
+}
