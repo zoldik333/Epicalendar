@@ -7,31 +7,39 @@ Actual sources :
 
 Dev steps :
 Authentications have to be done before displaying synchronized calendars :
-- Authentication with Google for Google Calendar
-> Javascript API request, Fullcalendar synchronization
-- Save cookies for auto-authentication when already logged
-> PHP + MySQL
-- Authentication to Microsoft account
-> Javascript API request
-- Save cookies for auto-authentication when already logged
-> PHP + MySQL
+Connection with EPITECH Intranet
+Connection with Google Account
+Synchronize both calendars
+Add UI/UX features on Epicalendar
+Automate process of synchronization
+
 
 Connection with EPITECH Intranet using Microsoft login and password :
-- Save login and password into database
-> MySQL
-- Parse JSON using user information from EPITECH Intranet
-> ???
-- Synchronize JSON information with Fullcalendar
-> Javascript
+Save email and login using HTML form
+Send them to database MySQl with PHP using Lampp
+Request Microsoft connection URL with data
+Open it in headless browser using plugin chrome-php
+Retrieve cookies from headless browser
+Put it on my HTML page
+Request EPITECH Intranet with API Request
+Parsing Intranet data using JSON
 
-Automatization :
+
+Connection with Google Account :
+
+
+Synchronize both calendars :
+Javascript plugin FullCalendar
+JSON data to exploit
+
+
+Add UI/UX features on Epicalendar :
+> Tailwind ? for CSS
+
+
+Automate process of synchronization:
 - How to automatize the process of synchronize the different calendar on your Epicalendar ?
 Which frequency ? Automatization every time you launch the app being logged in ? Being logged off ?
 > ???
 
-Managing events on the application :
-- Use Fullcalendar plugin
-> Javascript 
 
-Style :
-> Tailwind ? for CSS
