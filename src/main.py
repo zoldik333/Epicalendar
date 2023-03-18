@@ -46,12 +46,15 @@ def parse_json(res):
                     "acti_title"],
                 'location': item["room"]["code"].split('/')[-1]
                 if item["room"] is not None
-                and item["room"].get("code") is not None else None,
+                   and item["room"].get("code") is not None else None,
                 'start': {
                     'dateTime': item["start"].replace(' ', 'T') + '.000+01:00'
                 },
                 'end': {
                     'dateTime': item["end"].replace(' ', 'T') + '.000+01:00'
+                },
+                'reminders': {
+                    'useDefault': True,
                 }
             }
             events.append(event)
@@ -63,7 +66,7 @@ def check_id(conn):
     if os.path.exists('data.json'):
         f = open("data.json", "r")
         id_json = json.loads(f.read())
-    else :
+    else:
         calendar = {
             'summary': 'Epitech',
             'timeZone': 'Europe/Paris'
@@ -126,27 +129,27 @@ def main():
     connection = google_connection()
     cookie = sys.argv[1]
     calendar_id = check_id(connection)
-    while True:
-        start_date = date.today()
-        end_date = start_date + timedelta(days=31 * 2)
-        jar = requests.cookies.RequestsCookieJar()
-        jar.set("user", cookie, domain="intra.epitech.eu", path="/")
-        try:
-            response = requests.post("https://intra.epitech.eu/planning/load",
-                                     params=assign_parameters(start_date, end_date),
-                                     cookies=jar)
-            response.raise_for_status()
-            calendar = remove_events_epicalendar(calendar_id["id"], connection,
-                                                 parse_json(response.json()),
-                                                 start_date)
-            add_events_to_google(calendar_id["id"], connection, calendar)
+    start_date = date.today()
+    end_date = start_date + timedelta(days=31 * 2)
+    jar = requests.cookies.RequestsCookieJar()
+    jar.set("user", cookie, domain="intra.epitech.eu", path="/")
+    try:
+        response = requests.post("https://intra.epitech.eu/planning/load",
+                                 params=assign_parameters(start_date,
+                                                          end_date),
+                                 cookies=jar)
+        response.raise_for_status()
+        calendar = remove_events_epicalendar(calendar_id["id"], connection,
+                                             parse_json(response.json()),
+                                             start_date)
+        add_events_to_google(calendar_id["id"], connection, calendar)
 
-        except requests.exceptions.HTTPError as error:
-            print(error, file=sys.stderr)
-            raise SystemExit(error)
-        except requests.exceptions.RequestException as error:
-            print(error, file=sys.stderr)
-            raise SystemExit(error)
+    except requests.exceptions.HTTPError as error:
+        print(error, file=sys.stderr)
+        raise SystemExit(error)
+    except requests.exceptions.RequestException as error:
+        print(error, file=sys.stderr)
+        raise SystemExit(error)
 
 
 if __name__ == "__main__":
@@ -157,4 +160,3 @@ if __name__ == "__main__":
         print(f"Wrong arguments. Run {sys.argv[0]} -h to see usage")
         exit(84)
     main()
-
